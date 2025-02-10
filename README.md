@@ -2,6 +2,7 @@
 This is a simple Node.js server that implements HMAC authentication. It provides an API endpoint that requires authentication using HMAC.
 
 ## Step 1: Generate and Compare HMAC
+https://github.com/KishorNaik/Sol_Hmac_Auth_ExpressJs/blob/main/src/shared/utils/helpers/hmac/index.ts
 ```typescript
 // Generate Hashed Message Authentication Code (HMAC)
 import { createHmac } from 'crypto';
@@ -66,6 +67,7 @@ export const compareHmac = (payload: string, secret: string, receivedSignature: 
 ```
 
 ## Step 2: Hmac Authentication Middleware
+https://github.com/KishorNaik/Sol_Hmac_Auth_ExpressJs/blob/main/src/middlewares/hmac.middlware.ts
 ```typescript
 import { DataResponseFactory } from '@/shared/models/response/data.Response';
 import { ResultError } from '@/shared/utils/exceptions/results';
@@ -135,6 +137,7 @@ const getSecretKeyFromDatabaseAsync=async(clientId:string):Promise<Result<string
 ```
 
 ## Step 3: Use the middleware in your routes
+https://github.com/KishorNaik/Sol_Hmac_Auth_ExpressJs/blob/main/src/modules/demo/apps/features/v1/demoAes/index.ts#L36
 ```typescript
 @JsonController('/api/v1/demo')
 @OpenAPI({ tags: ['demo'] })
@@ -157,6 +160,7 @@ export class DemoAesController {
 ```
 
 ## Step 4: Test the endpoint
+https://github.com/KishorNaik/Sol_Hmac_Auth_ExpressJs/blob/main/src/modules/demo/tests/integration/index.test.ts
 ```typescript
 process.env.NODE_ENV = 'development';
 process.env.ENCRYPTION_KEY = 'RWw5ejc0Wzjq0i0T2ZTZhcYu44fQI5M6';
